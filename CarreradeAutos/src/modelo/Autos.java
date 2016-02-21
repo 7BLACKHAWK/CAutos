@@ -20,7 +20,7 @@ public class Autos extends Thread{
     
     public void cab1(){
         int movimiento1;
-        while(Juego.Auto1.getLocation().x<1000){
+        while(Juego.Auto1.getLocation().x<650){
             movimiento1=(int) (Math.random()*5+1);
             try {
                 Thread.sleep(10);
@@ -30,7 +30,7 @@ public class Autos extends Thread{
     }
     public void cab2(){
         int movimiento1;
-        while(Juego.Auto2.getLocation().x<1000){
+        while(Juego.Auto2.getLocation().x<650){
             movimiento1=(int) (Math.random()*5+1);
             try {
                 Thread.sleep(10);
@@ -40,7 +40,7 @@ public class Autos extends Thread{
     }
     public void cab3(){
         int movimiento1;
-        while(Juego.Auto3.getLocation().x<1000){
+        while(Juego.Auto3.getLocation().x<650){
             movimiento1=(int) (Math.random()*5+1);
             try {
                 Thread.sleep(10);

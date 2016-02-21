@@ -6,22 +6,23 @@
 package modelo;
 
 import Vista.Juego;
+import static java.lang.Thread.sleep;
 
 /**
  *
  * @author Marvin
  */
-public class MovAuto1 extends Thread{
+public class MovAuto3 extends Thread{
     
     @Override
     public void run(){
         int movimiento1;
-        while(Juego.Auto1.getLocation().x<650){
+        while(Juego.Auto3.getLocation().x<650){
             movimiento1=(int) (Math.random()*5+1);
             try {
                 sleep(10);
             } catch (InterruptedException ex) {}
-            Juego.Auto1.setLocation(Juego.Auto1.getLocation().x+movimiento1, Juego.Auto1.getLocation().y);
+            Juego.Auto3.setLocation(Juego.Auto3.getLocation().x+movimiento1, Juego.Auto3.getLocation().y);
         }
         Juego.puesto++;
         String texto=Juego.RGanadores.getText()+Juego.puesto+". "+this.getName()+"\n";

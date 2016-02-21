@@ -5,11 +5,14 @@
  */
 package Vista;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Autos;
 import modelo.MovAuto1;
+import modelo.MovAuto2;
+import modelo.MovAuto3;
 
 /**
  *
@@ -20,19 +23,24 @@ public class Juego extends javax.swing.JFrame {
     /**
      * Creates new form Juego
      */
-    public static Point caball1=new Point(160, 0);
-    public static Point caball2=new Point(75, 30);
-    public static Point caball3=new Point(1, 110);
+    public static Point caball1=new Point(0, 120);
+    public static Point caball2=new Point(0, 240);
+    public static Point caball3=new Point(0, 350);
     public String Jganadores="";
     public static int puesto=0;
     public static boolean bandera=true;
     public static Juego fram;
     public static MovAuto1 caba1= new MovAuto1();
-//    static hilocaballo2 caba2= new hilocaballo2();
-//    static hilocaballo3 caba3= new hilocaballo3();
+    public static MovAuto2 caba2= new MovAuto2();
+    public static MovAuto3 caba3= new MovAuto3();
     public static Autos iniciar= new Autos();
     public Juego() throws InterruptedException{
         initComponents();
+        this.setSize(950, 470);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("Carreras de Autos");
+        this.getContentPane().setBackground(Color.BLACK);
     }
 
     /**
@@ -44,6 +52,7 @@ public class Juego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         Auto1 = new javax.swing.JLabel();
         Auto2 = new javax.swing.JLabel();
         Auto3 = new javax.swing.JLabel();
@@ -53,22 +62,30 @@ public class Juego extends javax.swing.JFrame {
         Resultados = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RGanadores = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(0, 0, 79, 25);
+
         Auto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/auto1.gif"))); // NOI18N
         getContentPane().add(Auto1);
-        Auto1.setBounds(0, 120, 96, 54);
+        Auto1.setBounds(-4, 120, 100, 54);
 
         Auto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/auto2.gif"))); // NOI18N
         getContentPane().add(Auto2);
-        Auto2.setBounds(0, 240, 91, 60);
+        Auto2.setBounds(1, 240, 100, 60);
 
         Auto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/auto3.gif"))); // NOI18N
         getContentPane().add(Auto3);
-        Auto3.setBounds(0, 360, 90, 50);
+        Auto3.setBounds(10, 360, 90, 50);
 
         Salida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salida.png"))); // NOI18N
         getContentPane().add(Salida);
@@ -78,55 +95,46 @@ public class Juego extends javax.swing.JFrame {
         getContentPane().add(Meta);
         Meta.setBounds(660, 100, 43, 330);
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/maxresdefault.jpg"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(Fondo);
-        Fondo.setBounds(0, 0, 702, 440);
+        Fondo.setBounds(0, 0, 756, 440);
 
         Resultados.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        Resultados.setText("Resultados");
+        Resultados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fp.png"))); // NOI18N
         getContentPane().add(Resultados);
-        Resultados.setBounds(740, 20, 100, 80);
+        Resultados.setBounds(760, 0, 190, 60);
 
+        RGanadores.setBackground(new java.awt.Color(0, 0, 0));
+        RGanadores.setBorder(new javax.swing.border.MatteBorder(null));
+        RGanadores.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        RGanadores.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(RGanadores);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(860, 50, 120, 130);
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(730, 210, 79, 25);
+        jScrollPane1.setBounds(760, 80, 190, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(!caba1.isAlive()){
-//            && !caba2.isAlive() && !caba3.isAlive()
+        if(!caba1.isAlive() && !caba2.isAlive() && !caba3.isAlive()){            
             RGanadores.setText("");
             puesto=0;
             Auto1.setLocation(caball1);
-//            lblcaballo2.setLocation(caball2);
-//            lblcaballo3.setLocation(caball3);
+            Auto2.setLocation(caball2);
+            Auto3.setLocation(caball3);
 
             caba1= new MovAuto1();
-//            caba2= new hilocaballo2();
-//            caba3= new hilocaballo3();
+            caba2= new MovAuto2();
+            caba3= new MovAuto3();
             caba1.setName("caballo1");
-//            caba2.setName("caballo2");
-//            caba3.setName("caballo3");
+            caba2.setName("caballo2");
+            caba3.setName("caballo3");
      
             caba1.start();
-//            caba2.start();
-//            caba3.start();
+            caba2.start();
+            caba3.start();
         }
-        
-        
-        
         if (bandera) iniciar.start();
         bandera=false;
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -162,8 +170,8 @@ public class Juego extends javax.swing.JFrame {
         fram.setVisible(true);
         
         caba1.join();
-//        caba2.join();
-//        caba3.join();
+        caba2.join();
+        caba3.join();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             try {
