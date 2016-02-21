@@ -26,10 +26,10 @@ public class Juego extends javax.swing.JFrame {
     public static Point posicionA1=new Point(0, 120);
     public static Point posicionA2=new Point(0, 240);
     public static Point posicionA3=new Point(0, 350);
-    public String Jganadores="";
+//    public String Jganadores="";
     public static int puesto=0;
     public static boolean bandera=true;
-    public static Juego fram;
+//    public static Juego fram;
     public static MovAuto1 MovA1= new MovAuto1();
     public static MovAuto2 MovA2= new MovAuto2();
     public static MovAuto3 MovA3= new MovAuto3();
@@ -127,19 +127,21 @@ public class Juego extends javax.swing.JFrame {
 
     private void INICIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INICIARActionPerformed
         if(!MovA1.isAlive() && !MovA2.isAlive() && !MovA3.isAlive()){            
-            Pizarra.setText("");
+            Pizarra.setText("");//limpia la tabla de ganadores
             puesto=0;
+            //////
             Auto1.setLocation(posicionA1);
-            Auto2.setLocation(posicionA2);
-            Auto3.setLocation(posicionA3);
-
             MovA1= new MovAuto1();
-            MovA2= new MovAuto2();
-            MovA3= new MovAuto3();
             MovA1.setName("Auto Rojo");
+            //////
+            Auto2.setLocation(posicionA2);
+            MovA2= new MovAuto2();
             MovA2.setName("Auto Azul");
+            //////
+            Auto3.setLocation(posicionA3);
+            MovA3= new MovAuto3();
             MovA3.setName("Auto Gris");
-     
+            /////Iniciar los 3
             MovA1.start();
             MovA2.start();
             MovA3.start();
