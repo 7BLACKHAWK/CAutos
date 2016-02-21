@@ -12,42 +12,35 @@ import Vista.Juego;
  * @author Marvin
  */
 public class Autos extends Thread{
-    public static String ganadores;
-    public static boolean termine1=true;
-    public static boolean termine2=true;
-    public static boolean termine3=true;
+    int movAuto1; 
+    int movAuto2;
+    int movAuto3;
     
-    
-    public void cab1(){
-        int movimiento1;
+    public void runAuto1(){
         while(Juego.Auto1.getLocation().x<650){
-            movimiento1=(int) (Math.random()*5+1);
+            movAuto1=(int) (Math.random()*4+1);
             try {
-                Thread.sleep(10);
+                sleep(10);
             } catch (InterruptedException ex) {}
-            Juego.Auto1.setLocation(Juego.Auto1.getLocation().x+movimiento1, Juego.Auto1.getLocation().y);
+            Juego.Auto1.setLocation(Juego.Auto1.getLocation().x+movAuto1, Juego.Auto1.getLocation().y);
         }
     }
-    public void cab2(){
-        int movimiento1;
+    public void runAuto2(){
         while(Juego.Auto2.getLocation().x<650){
-            movimiento1=(int) (Math.random()*5+1);
+            movAuto2=(int) (Math.random()*4+1);
             try {
-                Thread.sleep(10);
+                sleep(10);
             } catch (InterruptedException ex) {}
-            Juego.Auto2.setLocation(Juego.Auto2.getLocation().x+movimiento1, Juego.Auto2.getLocation().y);
+            Juego.Auto2.setLocation(Juego.Auto2.getLocation().x+movAuto2, Juego.Auto2.getLocation().y);
         }
     }
-    public void cab3(){
-        int movimiento1;
+    public void runAuto3(){
         while(Juego.Auto3.getLocation().x<650){
-            movimiento1=(int) (Math.random()*5+1);
+            movAuto3=(int) (Math.random()*4+1);
             try {
-                Thread.sleep(10);
+                sleep(10);
             } catch (InterruptedException ex) {}
-            Juego.Auto3.setLocation(Juego.Auto3.getLocation().x+movimiento1, Juego.Auto3.getLocation().y);
+            Juego.Auto3.setLocation(Juego.Auto3.getLocation().x+movAuto3, Juego.Auto3.getLocation().y);
         }
-        
     }
-    
 }

@@ -13,20 +13,19 @@ import static java.lang.Thread.sleep;
  * @author Marvin
  */
 public class MovAuto2 extends Thread{
-    
+    int movAuto2;    
     @Override
     public void run(){
-        int movimiento1;
         while(Juego.Auto2.getLocation().x<650){
-            movimiento1=(int) (Math.random()*5+1);
+            movAuto2=(int) (Math.random()*4+1);
             try {
                 sleep(10);
             } catch (InterruptedException ex) {}
-            Juego.Auto2.setLocation(Juego.Auto2.getLocation().x+movimiento1, Juego.Auto2.getLocation().y);
+            Juego.Auto2.setLocation(Juego.Auto2.getLocation().x+movAuto2, Juego.Auto2.getLocation().y);
         }
         Juego.puesto++;
-        String texto=Juego.RGanadores.getText()+Juego.puesto+". "+this.getName()+"\n";
-        Juego.RGanadores.setText(texto);
+        String texto=Juego.Pizarra.getText()+"Puesto #"+Juego.puesto+" es: \n \t"+this.getName()+"\n\n";
+        Juego.Pizarra.setText(texto);
 
     }
     
